@@ -1,7 +1,0 @@
-It's finally happening - after >30 years of pro
-use, 20 of which quite reluctantly, | am
-officially DONE with C/C++. Only
-maintenance from now on, everything new
-will be in @rustlang. THANKS Rust team for
-refining modern concepts into such a
-practical, elegant system. | love it.
