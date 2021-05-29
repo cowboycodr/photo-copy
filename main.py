@@ -6,9 +6,22 @@ import pytesseract
 import clipboard
 from mouse_controller import MouseController
 import time
+import platform
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+class NotCompatibleWithOS(Exception):
+    pass
 
+OS = platform.system().lower()
+
+if OS == "windows":
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+elif OS == "darwin":
+    pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/tesseract'
+elif OS == "linux":
+    pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/tesseract'
+else:
+    raise NotCompatibleWithOS(f"This program is not compatible with {OS}")
+    
 mc = MouseController
 
 pressed = False
